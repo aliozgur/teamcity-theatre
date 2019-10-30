@@ -50,15 +50,17 @@ const tryRequestFullScreen = (event: MouseEvent<HTMLButtonElement>) => {
  */
 const View = (props: { view: IView, data: IViewData }) => (
     <div className="view" id={props.view.id}>
+        <h1 className="text-center">{props.view.name}</h1>
         <button role="button" className="btn btn-primary btn-xs" onClick={tryRequestFullScreen}>
             <i className="fa fa-expand" /> Full screen
-    </button>
+        </button>
+
         <div id="tiles">
             <div className="tiles-wrapper">
                 {props.data.tiles.map(tile => <Tile key={tile.id} view={props.view} data={tile} />)}
             </div>
         </div>
-    </div>
+    </div >
 );
 
 const Tile = (props: { view: IView, data: ITileData }) => {
